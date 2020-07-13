@@ -6,6 +6,10 @@ import datetime
 from datetime import *
 import operator
 
+#get a list of candidate name and web link from wikipedia
+#candidate=requests.get("https://en.wikipedia.org/wiki/2020_Democratic_Party_vice_presidential_candidate_selection")
+#candidate_soup=bs4.BeautifulSoup(candidate.text,"html.parser")
+#candidate_soup ? needs help from J
 
 url_list=['https://en.wikipedia.org/w/index.php?title=Keisha_Lance_Bottoms&action=history','https://en.wikipedia.org/w/index.php?title=Elizabeth_Warren&action=history','https://en.wikipedia.org/w/index.php?title=Val_Demings&action=history','https://en.wikipedia.org/w/index.php?title=Kamala_Harris&action=history','https://en.wikipedia.org/w/index.php?title=Michelle_Lujan_Grisham&action=history','https://en.wikipedia.org/w/index.php?title=Susan_Rice&action=history']
 allcandidate={}
