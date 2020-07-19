@@ -1,10 +1,11 @@
 import collections
-import matplotlib.pyplot as plt
-import bs4
-import requests
 import datetime
-from datetime import *
 import operator
+from datetime import *
+
+import bs4
+import matplotlib.pyplot as plt
+import requests
 
 url_list=['https://en.wikipedia.org/w/index.php?title=Keisha_Lance_Bottoms&action=history','https://en.wikipedia.org/w/index.php?title=Elizabeth_Warren&action=history','https://en.wikipedia.org/w/index.php?title=Val_Demings&action=history','https://en.wikipedia.org/w/index.php?title=Kamala_Harris&action=history','https://en.wikipedia.org/w/index.php?title=Michelle_Lujan_Grisham&action=history','https://en.wikipedia.org/w/index.php?title=Susan_Rice&action=history']
 allcandidate={}
