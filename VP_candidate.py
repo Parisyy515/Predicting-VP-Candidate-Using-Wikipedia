@@ -7,8 +7,7 @@ import bs4
 import matplotlib.pyplot as plt
 import requests
 
-url_list = ['https://en.wikipedia.org/w/index.php?title=Keisha_Lance_Bottoms&action=history', 'https://en.wikipedia.org/w/index.php?title=Elizabeth_Warren&action=history', 'https://en.wikipedia.org/w/index.php?title=Val_Demings&action=history',
-            'https://en.wikipedia.org/w/index.php?title=Kamala_Harris&action=history', 'https://en.wikipedia.org/w/index.php?title=Michelle_Lujan_Grisham&action=history', 'https://en.wikipedia.org/w/index.php?title=Susan_Rice&action=history']
+
 allcandidate = {}
 candidate = []
 cnt = []
@@ -16,6 +15,9 @@ present = datetime.now()
 past7 = present-timedelta(days=7)
 datemask = "%Y-%m-%d"
 
+def get_url_list():
+    return ['https://en.wikipedia.org/w/index.php?title=Keisha_Lance_Bottoms&action=history', 'https://en.wikipedia.org/w/index.php?title=Elizabeth_Warren&action=history', 'https://en.wikipedia.org/w/index.php?title=Val_Demings&action=history',
+            'https://en.wikipedia.org/w/index.php?title=Kamala_Harris&action=history', 'https://en.wikipedia.org/w/index.php?title=Michelle_Lujan_Grisham&action=history', 'https://en.wikipedia.org/w/index.php?title=Susan_Rice&action=history']
 
 def each_candidate(url):
     # define a sub-function to extract name
@@ -79,13 +81,14 @@ def each_candidate(url):
     cnt.append(len(one_week(R)))
 
 
-print("Please see below the list of democratic VP candidates for the 2020 election, and the total editing times of their Wikipedia page in the most recent one week.\n")
-for url in url_list:
-    each_candidate(url)
+def main(url_list, present):
+    print("Please see below the list of democratic VP candidates for the 2020 election, and the total editing times of their Wikipedia page in the most recent one week.\n")
+    for url in url_list:
+        each_candidate(url)
 
-allcandidate = dict(zip(candidate, cnt))
-max_key = max(allcandidate, key=allcandidate.get)
-print(f"\nThe current's time is {present}\n")
-print(
-    f"Based on the total editing times for each candidate's Wikipedia page in the most recent week, I would like to predict that the next democratic VP is {max_key}\n")
-print("Below is a chart showing the editing frequency for the most recent 50 edits for each candidate. ")
+    allcandidate = dict(zip(candidate, cnt))
+    max_key = max(allcandidate, key=allcandidate.get)
+    print(f"\nThe current's time is {present}\n")
+    print(
+        f"Based on the total editing times for each candidate's Wikipedia page in the most recent week, I would like to predict that the next democratic VP is {max_key}\n")
+    print("Below is a chart showing the editing frequency for the most recent 50 edits for each candidate. ")
